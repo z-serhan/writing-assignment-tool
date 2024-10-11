@@ -11,7 +11,7 @@
                     <!-- Conditionally show the status using ngIf -->
                     <p *ngIf="assignment.status === 'Pending'">
                         <span class="badge bg-warning">{{ assignment.status }}</span>
-                        <a href="" (click)="toggleWriting()">(Start Assignment)</a>
+                        <a href="">(Start Assignment)</a>
                     </p>
                     <p *ngIf="assignment.status === 'In Progress'">
                         <span class="badge bg-info">{{ assignment.status }}</span>
@@ -24,13 +24,4 @@
             </div>
         </div>
     </div>
-
-      <!-- Single Text Box displayed when any button is clicked -->
-  <div *ngIf="isWriting" class="mt-5">
-    <textarea rows="5" class="form-control" placeholder="Start writing your assignment here..."></textarea>
-    
-    <!-- Save and Cancel Buttons -->
-    <button (click)="toggleWriting()" class="btn btn-success mt-2">Save</button>
-    <button (click)="toggleWriting()" class="btn btn-secondary mt-2">Cancel</button>
-  </div>
 </div>

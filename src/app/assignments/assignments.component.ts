@@ -10,7 +10,7 @@ import { DataService } from '../data.service';
   styleUrl: './assignments.component.css'
 })
 export class AssignmentsComponent {
-  assignments = [
+/*   assignments = [
     { 
       title: 'Personal Narrative Essay', 
       due_date: '2024-10-12', 
@@ -59,21 +59,30 @@ export class AssignmentsComponent {
       status: 'Pending', 
       description: 'Submit the first draft of your research paper for review.' 
     }
-  ];
+  ]; */
 
-    // A boolean to track if the text box is displayed
-    isWriting = false;
-
+  assignments: Array<Assignment> = []
+   
     constructor(private dataService: DataService) { }
 
     ngOnInit(): void {
-  //    this.fetchAssignments();
-    }
-  
 
-    // Method to toggle the text box visibility
-    toggleWriting() {
-      this.isWriting = !this.isWriting;
+      this.dataService.getAssignments().subscribe({
+        next: (data) => {
+          this.assignments = data;  // Update with actual data format
+        },
+        error: (error) => {
+          console.error('Error fetching assignments', error);
+        }
+      });    
     }
 
 }
+
+interface Assignment {
+  title: string;
+  description: string;
+  due_date: string;
+  status: 'Pending' | 'In Progress' | 'Submitted';
+}
+

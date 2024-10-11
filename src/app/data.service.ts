@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class DataService {
 
 
-  private apiUrl = 'https://dummyjson.com/c/1d6b-1f6b-4246-bd42';  // Replace with your API URL
+  private apiUrl = 'https://dummyjson.com/c/1d6b-1f6b-4246-bd42'; 
 
   constructor(private http: HttpClient) { }
 
