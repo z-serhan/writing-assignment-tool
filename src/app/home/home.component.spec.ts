@@ -20,4 +20,11 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the welcome message', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const heading = compiled.querySelector('h1')
+    expect(heading?.textContent).toContain('Welcome to the Writing Hub');
+  });
+
 });

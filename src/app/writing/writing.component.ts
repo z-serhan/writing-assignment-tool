@@ -10,5 +10,5 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './writing.component.css'
 })
 export class WritingComponent {
-  essay = "";
+  essay = "initial line";
 }
